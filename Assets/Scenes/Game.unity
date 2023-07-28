@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 280022018}
   - component: {fileID: 280022017}
   - component: {fileID: 280022016}
+  - component: {fileID: 280022020}
   m_Layer: 5
   m_Name: QuizCanvas
   m_TagString: Untagged
@@ -369,6 +370,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &280022020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280022015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191f632e123457f49bb614d7ca92f19d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questionText: {fileID: 1351302632}
+  question: {fileID: 11400000, guid: 049aa3de4ff13e34c8a1abf47fe40597, type: 2}
+  answerButtons:
+  - {fileID: 1486360117}
+  - {fileID: 1082157706}
+  - {fileID: 1278902173}
+  - {fileID: 1885330529}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +989,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062399321}
   m_CullTransparentMesh: 1
+--- !u!1 &1082157706 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4227720648026000414, guid: 51c3f8a98fbdd22498527afd08b834af, type: 3}
+  m_PrefabInstance: {fileID: 1212822180}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1212822180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1070,6 +1095,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4227720648026000415, guid: 51c3f8a98fbdd22498527afd08b834af, type: 3}
   m_PrefabInstance: {fileID: 1212822180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1278902173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4227720648026000414, guid: 51c3f8a98fbdd22498527afd08b834af, type: 3}
+  m_PrefabInstance: {fileID: 531294153}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1305088167
 GameObject:
@@ -1308,6 +1338,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1351302630}
   m_CullTransparentMesh: 1
+--- !u!1 &1486360117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4227720648026000414, guid: 51c3f8a98fbdd22498527afd08b834af, type: 3}
+  m_PrefabInstance: {fileID: 1059935998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1677454102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1375,6 +1410,11 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &1885330529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4227720648026000414, guid: 51c3f8a98fbdd22498527afd08b834af, type: 3}
+  m_PrefabInstance: {fileID: 2069305811}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2069305811
 PrefabInstance:
   m_ObjectHideFlags: 0
