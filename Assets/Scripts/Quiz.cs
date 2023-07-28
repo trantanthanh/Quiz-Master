@@ -15,16 +15,41 @@ public class Quiz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DisplayQuestion();
+    }
+
+    void DisplayQuestion()
+    {
         questionText.text = question.GetQuestion();
         for (int i = 0; i < answerButtons.Length; ++i)
         {
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = question.GetAnswer(i);
         }
+        SetButtonsSate(true);
+    }
+
+    void SetButtonsSate(bool IsEnable)
+    {
+        for (int i = 0; i < answerButtons.Length; ++i)
+        {
+            Button button = answerButtons[i].GetComponent<Button>();
+            button.interactable = IsEnable;
+        }
+    }
+
+    void SetDefaultButtonsSprite()
+    {
+        for (int i = 0; i < answerButtons.Length; ++i)
+        {
+            Image buttonImage = answerButtons[i].GetComponent<Image>();
+            buttonImage.sprite = defaultAnswerSprite;
+        }
     }
 
     public void OnAnswerSelected(int index)
     {
+        SetButtonsSate(false);
         correctAnswerIndex = question.GetCorrectAnswerIndex();
         if (index == correctAnswerIndex)
         {
