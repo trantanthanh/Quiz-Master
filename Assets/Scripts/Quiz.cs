@@ -39,6 +39,7 @@ public class Quiz : MonoBehaviour
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         scoreKeeper.Init();
         numOfQuestions = questions.Count;
+        scoreKeeper.SetNumOfQuestions(numOfQuestions);
         progressBar.maxValue = numOfQuestions;
         progressBar.value = 0;
         GetNextQuestion();
@@ -61,7 +62,7 @@ public class Quiz : MonoBehaviour
 
     void UpdateScoreText()
     {
-        scoreText.text = "Score : " + scoreKeeper.CalculateScore(numOfQuestions) + "%";
+        scoreText.text = "Score : " + scoreKeeper.CalculateScore() + "%";
         progressText.text = scoreKeeper.GetQuestionSeen() + "/" + numOfQuestions;
         progressBar.value = scoreKeeper.GetQuestionSeen();
     }

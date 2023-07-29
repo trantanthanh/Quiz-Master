@@ -6,6 +6,7 @@ public class ScoreKeeper : MonoBehaviour
 {
     int correctAnswers = 0;
     int questionSeen = 0;
+    int numOfQuestions = 0;
 
     public void Init()
     {
@@ -33,6 +34,11 @@ public class ScoreKeeper : MonoBehaviour
         questionSeen = value;
     }
 
+    public void SetNumOfQuestions(int value)
+    {
+        numOfQuestions = value;
+    }
+
     public void IncreaseCorrectAns()
     {
         ++correctAnswers;
@@ -43,7 +49,7 @@ public class ScoreKeeper : MonoBehaviour
         ++questionSeen;
     }
 
-    public int CalculateScore(int numOfQuestions)
+    public int CalculateScore()
     {
         if (numOfQuestions == 0)
         {
