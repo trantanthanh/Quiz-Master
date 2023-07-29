@@ -5,17 +5,25 @@ using UnityEngine.UI;
 using TMPro;
 public class Quiz : MonoBehaviour
 {
+    [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] QuestionSO question;
-    [SerializeField] GameObject[] answerButtons;
 
+    [Header("Answers")]
+    [SerializeField] GameObject[] answerButtons;
     int correctAnswerIndex;
+
+    [Header("Button colors")]
     [SerializeField] Sprite defaultAnswerSprite;
     [SerializeField] Sprite correctAnswerSprite;
+
+    [Header("Timer")]
+    [SerializeField] Image imageTimer;
+    Timer timer;
     // Start is called before the first frame update
     void Start()
     {
-        DisplayQuestion();
+        GetNextQuestion();
     }
 
     void DisplayQuestion()
@@ -26,7 +34,14 @@ public class Quiz : MonoBehaviour
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = question.GetAnswer(i);
         }
+        
+    }
+
+    void GetNextQuestion()
+    {
         SetButtonsSate(true);
+        SetDefaultButtonsSprite();
+        DisplayQuestion();
     }
 
     void SetButtonsSate(bool IsEnable)
