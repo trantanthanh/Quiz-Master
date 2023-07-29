@@ -10,7 +10,7 @@ public class Quiz : MonoBehaviour
     [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
     QuestionSO currentQuestion;
     bool hasAnswered = false;
-    bool isComplete = false;
+    public bool isComplete = false;
 
     [Header("Answers")]
     [SerializeField] GameObject[] answerButtons;
@@ -32,7 +32,7 @@ public class Quiz : MonoBehaviour
 
     [Header("ProgressBar")]
     [SerializeField] Slider progressBar;
-    void Start()
+    void Awake()
     {
         isComplete = false;
         timer = FindObjectOfType<Timer>();
@@ -88,6 +88,10 @@ public class Quiz : MonoBehaviour
             GetRandomizeQuestion();
             DisplayQuestion();
             UpdateScoreText();
+        }
+        else
+        {
+            isComplete = true;
         }
     }
 
