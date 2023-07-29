@@ -7,7 +7,8 @@ public class Quiz : MonoBehaviour
 {
     [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
-    [SerializeField] QuestionSO question;
+    [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
+    QuestionSO currentQuestion;
     bool hasAnswered = false;
 
     [Header("Answers")]
@@ -45,21 +46,32 @@ public class Quiz : MonoBehaviour
 
     void DisplayQuestion()
     {
-        questionText.text = question.GetQuestion();
+        questionText.text = currentQuestion.GetQuestion();
         for (int i = 0; i < answerButtons.Length; ++i)
         {
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = question.GetAnswer(i);
+            buttonText.text = currentQuestion.GetAnswer(i);
         }
 
     }
 
     void GetNextQuestion()
     {
-        hasAnswered = false;
-        SetButtonsSate(true);
-        SetDefaultButtonsSprite();
-        DisplayQuestion();
+        if (questions.Count > 0)
+        {
+            hasAnswered = false;
+            SetButtonsSate(true);
+            SetDefaultButtonsSprite();
+            GetRandomizeQuestion();
+            DisplayQuestion();
+        }
+    }
+
+    void GetRandomizeQuestion()
+    {
+        int index = Random.Range(0, questions.Count);
+        currentQuestion = questions[index];
+        questions.Remove(currentQuestion);
     }
 
     void SetButtonsSate(bool IsEnable)
@@ -90,14 +102,14 @@ public class Quiz : MonoBehaviour
     {
         hasAnswered = true;
         SetButtonsSate(false);
-        correctAnswerIndex = question.GetCorrectAnswerIndex();
+        correctAnswerIndex = currentQuestion.GetCorrectAnswerIndex();
         if (index == correctAnswerIndex)
         {
             questionText.text = "Correct!";
         }
         else
         {
-            questionText.text = "Sorry!. The correct answer is :\n" + question.GetAnswer(correctAnswerIndex);
+            questionText.text = "Sorry!. The correct answer is :\n" + currentQuestion.GetAnswer(correctAnswerIndex);
         }
         Image buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
         buttonImage.sprite = correctAnswerSprite;

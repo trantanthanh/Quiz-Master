@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToCompleteQuestion: 15
   timeToShowCorrectAnswer: 5
+  isLoadNextQuestion: 0
   fillFraction: 0
 --- !u!4 &97283374
 Transform:
@@ -431,7 +432,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionText: {fileID: 1351302632}
-  question: {fileID: 11400000, guid: 049aa3de4ff13e34c8a1abf47fe40597, type: 2}
+  questions:
+  - {fileID: 11400000, guid: 049aa3de4ff13e34c8a1abf47fe40597, type: 2}
+  - {fileID: 11400000, guid: 5e00994749336454e93809bbe79e97ad, type: 2}
+  - {fileID: 11400000, guid: 88035dab447438744a87903f3223379a, type: 2}
   answerButtons:
   - {fileID: 1486360117}
   - {fileID: 1082157706}
