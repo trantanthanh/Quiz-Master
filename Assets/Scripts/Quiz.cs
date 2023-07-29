@@ -23,7 +23,13 @@ public class Quiz : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timer = FindObjectOfType<Timer>();
         GetNextQuestion();
+    }
+
+    void Update()
+    {
+        imageTimer.fillAmount = timer.fillFraction;
     }
 
     void DisplayQuestion()

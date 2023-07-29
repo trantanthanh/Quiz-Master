@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float timeToShowCorrectAnswer = 10.0f;
     float timerValue;
 
-    public float fillFraction;
+    public float fillFraction = 0;
 
     enum TimerState
     {
@@ -28,6 +28,10 @@ public class Timer : MonoBehaviour
         timerValue = 0;
     }
     // Update is called once per frame
+    void Start()
+    {
+        SetState(TimerState.STATE_ANSWERING);
+    }
     void Update()
     {
         UpdateTimer();
@@ -73,6 +77,10 @@ public class Timer : MonoBehaviour
                     if (timerValue < 0)
                     {
                         SetState(TimerState.STATE_ANSWERING);
+                    }
+                    else
+                    {
+                        fillFraction = timerValue / timeToShowCorrectAnswer;
                     }
                     break;
                 }
