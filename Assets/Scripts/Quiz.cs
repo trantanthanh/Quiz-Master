@@ -30,6 +30,12 @@ public class Quiz : MonoBehaviour
     void Update()
     {
         imageTimer.fillAmount = timer.fillFraction;
+
+        if (timer.isLoadNextQuestion)
+        {
+            GetNextQuestion();
+            timer.isLoadNextQuestion = false;
+        }
     }
 
     void DisplayQuestion()
@@ -40,7 +46,7 @@ public class Quiz : MonoBehaviour
             TextMeshProUGUI buttonText = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
             buttonText.text = question.GetAnswer(i);
         }
-        
+
     }
 
     void GetNextQuestion()
@@ -70,7 +76,13 @@ public class Quiz : MonoBehaviour
 
     public void OnAnswerSelected(int index)
     {
+        timer.CancelTimer();
         SetButtonsSate(false);
+        DisplayAnswer(index);
+    }
+
+    private void DisplayAnswer(int index)
+    {
         correctAnswerIndex = question.GetCorrectAnswerIndex();
         if (index == correctAnswerIndex)
         {

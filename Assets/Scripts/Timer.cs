@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float timeToCompleteQuestion = 30.0f;
     [SerializeField] float timeToShowCorrectAnswer = 10.0f;
     float timerValue;
+    public bool isLoadNextQuestion = false;
 
     public float fillFraction = 0;
 
@@ -62,6 +63,7 @@ public class Timer : MonoBehaviour
         {
             case TimerState.STATE_ANSWERING:
                 {
+                    if (isLoadNextQuestion) break;
                     if (timerValue <= 0)
                     {
                         SetState(TimerState.STATE_SHOW_ANSWER);
@@ -76,6 +78,7 @@ public class Timer : MonoBehaviour
                 {
                     if (timerValue < 0)
                     {
+                        isLoadNextQuestion = true;
                         SetState(TimerState.STATE_ANSWERING);
                     }
                     else
