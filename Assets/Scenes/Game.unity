@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535cb80294b86b94fac58c3a4655e988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToCompleteQuestion: 10
+  timeToCompleteQuestion: 15
   timeToShowCorrectAnswer: 2
   isLoadNextQuestion: 0
   fillFraction: 0
@@ -494,6 +494,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 453b8e7e754c7084282d7a4a4f3aef3b, type: 2}
   - {fileID: 11400000, guid: a3099b54afbbc5e4497fde14fcd37209, type: 2}
   - {fileID: 11400000, guid: a9e8110afce66cd4eafc7d278360ce3e, type: 2}
+  - {fileID: 11400000, guid: 8590f1198b401e04693d3f6e793192ad, type: 2}
+  - {fileID: 11400000, guid: ec62bce1905b688429a417afe9d26ce0, type: 2}
+  - {fileID: 11400000, guid: f21af3ba74be4ad49b7ea8fcbf3236e1, type: 2}
+  - {fileID: 11400000, guid: 036626d42a6e42543a31b00fcca9b5ed, type: 2}
+  - {fileID: 11400000, guid: f9a0ad7a9319ecf458afe9b973a3a7a9, type: 2}
+  - {fileID: 11400000, guid: d66affe18d92bd4449c4b0cd7cf0081d, type: 2}
+  - {fileID: 11400000, guid: 7d7ef9d677c19d4428cbddf3c56c8a8d, type: 2}
+  - {fileID: 11400000, guid: 5495f013d714cbb4aae161c688419e05, type: 2}
+  - {fileID: 11400000, guid: 0413bfd69f5805f41a72725ab6149f36, type: 2}
+  - {fileID: 11400000, guid: f1668dd840e3bb44a865b887a24a28bc, type: 2}
   isComplete: 0
   answerButtons:
   - {fileID: 1486360117}
@@ -913,7 +923,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ceb3daba05d8ca5468e674efedaba176, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1381,7 +1391,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIZ-I-COOL
+  m_text: QUIZ-C#-COOL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 555b654184dd49e458500ad3c36d76b7, type: 2}
   m_sharedMaterial: {fileID: 3171408668377419109, guid: 555b654184dd49e458500ad3c36d76b7, type: 2}
@@ -1408,8 +1418,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 110
-  m_fontSizeBase: 110
+  m_fontSize: 97.3
+  m_fontSizeBase: 97.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
