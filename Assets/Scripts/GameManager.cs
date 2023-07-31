@@ -17,27 +17,6 @@ public class GameManager : MonoBehaviour
 
     GameState _state = GameState.STATE_IN_GAME;
 
-    void SetState(GameState state)
-    {
-        this._state = state;
-        switch (this._state)
-        {
-            case GameState.STATE_IN_GAME:
-                {
-                    quiz.gameObject.SetActive(true);
-                    endScreen.gameObject.SetActive(false);
-                    break;
-                }
-            case GameState.STATE_ENDSCREEN:
-                {
-                    quiz.gameObject.SetActive(false);
-                    endScreen.gameObject.SetActive(true);
-                    endScreen.SetFinalScore();
-                    break;
-                }
-        }
-    }
-
     void Awake()
     {
         quiz = FindObjectOfType<Quiz>();
@@ -70,8 +49,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void SetState(GameState state)
+    {
+        this._state = state;
+        switch (this._state)
+        {
+            case GameState.STATE_IN_GAME:
+                {
+                    quiz.gameObject.SetActive(true);
+                    endScreen.gameObject.SetActive(false);
+                    break;
+                }
+            case GameState.STATE_ENDSCREEN:
+                {
+                    quiz.gameObject.SetActive(false);
+                    endScreen.gameObject.SetActive(true);
+                    endScreen.SetFinalScore();
+                    break;
+                }
+        }
+    }
     public void OnReplayLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GetComponent<AudioSource>().Play();
     }
 }

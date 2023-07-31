@@ -5,6 +5,12 @@ using UnityEngine.UI;
 using TMPro;
 public class Quiz : MonoBehaviour
 {
+    [Header("Audio")]
+    [SerializeField] AudioClip[] rightSFX;
+    [SerializeField] AudioClip wrongSFX;
+    AudioSource soundPlayer;
+    int currentRightSFXIdx = 0;
+
     [Header("Questions")]
     [SerializeField] TextMeshProUGUI questionText;
     [SerializeField] List<QuestionSO> questions = new List<QuestionSO>();
@@ -42,6 +48,8 @@ public class Quiz : MonoBehaviour
         scoreKeeper.SetNumOfQuestions(numOfQuestions);
         progressBar.maxValue = numOfQuestions;
         progressBar.value = 0;
+        soundPlayer = GetComponent<AudioSource>();
+        currentRightSFXIdx = 0;
         GetNextQuestion();
     }
 
@@ -136,9 +144,17 @@ public class Quiz : MonoBehaviour
         {
             questionText.text = "Correct!";
             scoreKeeper.IncreaseCorrectAns();
+            soundPlayer.PlayOneShot(rightSFX[currentRightSFXIdx]);
+            ++currentRightSFXIdx;
+            if (currentRightSFXIdx > rightSFX.Length - 1)
+            {
+                currentRightSFXIdx = rightSFX.Length - 1;
+            }
         }
         else
         {
+            soundPlayer.PlayOneShot(wrongSFX);
+            currentRightSFXIdx = 0;
             questionText.text = "Sorry!. The correct answer is :\n" + currentQuestion.GetAnswer(correctAnswerIndex);
         }
         Image buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
